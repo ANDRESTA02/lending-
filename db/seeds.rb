@@ -7,4 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-[{nombre:"Portatil",descripcion:"",icono:"fa-desktop"}]
+tipo_elementos = [{nombre:"Portatil",descripcion:"",icono:"fa-desktop"}]
+
+tipo_elementos.each do |tipo_elemento|
+	TipoElemento.where(nombre: tipo_elemento[:nombre], icono: tipo_elemento[:icono]).first || TipoElemento.create(tipo_elemento)
+end	
